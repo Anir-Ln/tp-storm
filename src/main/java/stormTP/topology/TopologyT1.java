@@ -17,8 +17,7 @@ public class TopologyT1 {
 	
 	public static void main(String[] args) throws Exception {
 		int nbExecutors = 1;
-//		int room = Integer.parseInt(args[0]);
-		int room = 8;
+		int room = Integer.parseInt(args[0]);
 		int portINPUT = 9000 + room;
 		int portOUTPUT = 9005;
 		String ipmINPUT = "224.0.0." + room;
