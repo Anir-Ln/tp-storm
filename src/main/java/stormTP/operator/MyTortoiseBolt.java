@@ -17,11 +17,10 @@ public class MyTortoiseBolt extends BaseRichBolt {
 
     @Override
     public void execute(Tuple input) {
-
+        System.out.println(input);
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-
     }
 }
