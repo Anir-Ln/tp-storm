@@ -41,20 +41,20 @@ public class AppTest
     	
     	Manager tm = new Manager(dossard,nomsBinome);
     	
-    	String input = "{ \"tortoises\":[ ";
-    	input += "{\"id\":0,\"top\":896,\"position\":194,\"nbDevant\":4,\"nbDerriere\":5,\"total\":10},"; 
-    	input += "{\"id\":1,\"top\":896,\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10},";
-    	input += "{\"id\":2,\"top\":896,\"position\":199,\"nbDevant\":2,\"nbDerriere\":7,\"total\":10},"; 
-    	input += "{\"id\":3,\"top\":896,\"position\":185,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
-    	input += "{\"id\":4,\"top\":896,\"position\":192,\"nbDevant\":5,\"nbDerriere\":4,\"total\":10},"; 
-    	input += "{\"id\":5,\"top\":896,\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},";
-    	input += "{\"id\":6,\"top\":896,\"position\":206,\"nbDevant\":1,\"nbDerriere\":8,\"total\":10},"; 
-    	input += "{\"id\":7,\"top\":896,\"position\":198,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
-    	input += "{\"id\":8,\"top\":896,\"position\":187,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
-    	input += "{\"id\":9,\"top\":896,\"position\":217,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10}";
+    	String input = "{ \"item\":[ ";
+    	input += "{\"id\":0,\"top\":896,\"cellule\":194,\"nbDevant\":4,\"tour\":10},";
+    	input += "{\"id\":1,\"top\":896,\"cellule\":189,\"nbDevant\":6,\"tour\":10},";
+    	input += "{\"id\":2,\"top\":896,\"cellule\":199,\"nbDevant\":2,\"tour\":10},";
+    	input += "{\"id\":3,\"top\":896,\"cellule\":185,\"nbDevant\":8,\"tour\":10},";
+    	input += "{\"id\":4,\"top\":896,\"cellule\":192,\"nbDevant\":5,\"tour\":10},";
+    	input += "{\"id\":5,\"top\":896,\"cellule\":182,\"nbDevant\":9,\"tour\":10},";
+    	input += "{\"id\":6,\"top\":896,\"cellule\":206,\"nbDevant\":1,\"tour\":10},";
+    	input += "{\"id\":7,\"top\":896,\"cellule\":198,\"nbDevant\":3,\"tour\":10},";
+    	input += "{\"id\":8,\"top\":896,\"cellule\":187,\"nbDevant\":7,\"tour\":10},";
+    	input += "{\"id\":9,\"top\":896,\"cellule\":217,\"nbDevant\":0,\"tour\":10}";
     	input += "] }";
     	
-		String output = "{\"id\":5,\"top\":896,\"nom\":\"" + nomsBinome + "\",\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10}";
+		String output = "{\"id\":5,\"top\":896,\"nom\":\"" + nomsBinome + "\",\"cellule\":182,\"nbDevant\":9,\"tour\":10}";
     	System.out.println("@Test testTortoiseFilter()");
     	
     	String result = tm.filter(input).getJSON_V1();

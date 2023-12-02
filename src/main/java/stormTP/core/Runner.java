@@ -1,117 +1,90 @@
 package stormTP.core;
 
-import javax.json.Json;
-import javax.json.JsonObjectBuilder;
 
-public class Runner{
+import org.apache.storm.shade.org.json.simple.JSONObject;
+
+public class Runner {
 	
 	long id = -1;
-	String typeR = null;
 	long top = -1;
-	int position = -1;
+	int cellule = -1;
 	int nbDevant = -1;
-	int nbDerriere = -1;
-	int total = -1;
+	int tour = -1;
 	
 	String nom = "";
 	
 	
 	public Runner(){
-		
 	}
 	
-	public Runner(long id, String name, int nbDevant,  int nbDerriere, int total, int position, long top){
+	public Runner(long id, String name, int nbDevant, int tour, int cellule, long top){
 		this.id = id;
 		this.nom = name;
 		this.nbDevant = nbDevant;
-		this.nbDerriere = nbDerriere;
-		this.total = total;
-		this.position = position;
+		this.tour = tour;
+		this.cellule = cellule;
 		this.top = top;
 	}
 
+
+	public String getJSON_V1(){
+		JSONObject obj = new JSONObject();
+		/* construction de l'objet JSON résultat */
+		obj.put("id", this.id);
+		obj.put("top", this.top);
+		obj.put("nom", this.nom);
+		obj.put("cellule", this.cellule);
+        obj.put("nbDevant", this.nbDevant);
+        obj.put("tour", this.tour);
+
+		return obj.toJSONString();
+	}
 
 	public long getId() {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 
 	public long getTop() {
 		return top;
 	}
 
-
 	public void setTop(long top) {
 		this.top = top;
 	}
 
-
-	public int getPosition() {
-		return position;
+	public int getCellule() {
+		return cellule;
 	}
 
-
-	public void setPosition(int position) {
-		this.position = position;
+	public void setCellule(int cellule) {
+		this.cellule = cellule;
 	}
-
-
-	public String getNom() {
-		return nom;
-	}
-
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-
 
 	public int getNbDevant() {
 		return nbDevant;
 	}
 
-
 	public void setNbDevant(int nbDevant) {
 		this.nbDevant = nbDevant;
 	}
 
-
-	public int getTotal() {
-		return total;
+	public int getTour() {
+		return tour;
 	}
 
-
-	public void setTotal(int total) {
-		this.total = total;
+	public void setTour(int tour) {
+		this.tour = tour;
 	}
-		
-	
-	
-	
-	
-	public String getJSON_V1(){
-		JsonObjectBuilder r = null;
-		r = Json.createObjectBuilder();
-		/* construction de l'objet JSON résultat */
-		r.add("id", this.id);
-//		r.add("type", this.typeR);
-		r.add("top", this.top);
-		r.add("nom", this.nom);
-		r.add("position", this.position);
-        r.add("nbDevant", this.nbDevant);
-		r.add("nbDerriere", this.nbDerriere);
-        r.add("total", this.total);
-       
-        return r.build().toString();
-	}
-	
-	
 
-	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 }

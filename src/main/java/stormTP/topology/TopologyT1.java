@@ -39,6 +39,4 @@ public class TopologyT1 {
         /*La topologie est soumise à STORM*/
         StormSubmitter.submitTopology("topoT1", config, builder.createTopology());
 	}
-		
-	
 }

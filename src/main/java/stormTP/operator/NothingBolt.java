@@ -1,7 +1,8 @@
 package stormTP.operator;
 
 import java.util.Map;
-//import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
@@ -19,10 +20,10 @@ import org.apache.storm.tuple.Values;
  */
 public class NothingBolt implements IRichBolt {
 
-	private static final long serialVersionUID = 4262369370788107343L;
 	private OutputCollector collector;
-	
-	
+	Logger logger = Logger.getGlobal();
+
+
 	public NothingBolt () {
 		
 	}
@@ -34,11 +35,12 @@ public class NothingBolt implements IRichBolt {
 	
 		try {
 			String n = t.getValueByField("json").toString();
-			System.out.println(n + " is treated!");
+			logger.log(Level.INFO, "treated");
+			logger.log(Level.INFO, n);
 			collector.emit(t, new Values(n));
 			//collector.ack(t);
 		}catch (Exception e){
-			System.err.println("Empty tuple.");
+			logger.log(Level.INFO, "Empty tuple");
 		}
 		return;
 		
