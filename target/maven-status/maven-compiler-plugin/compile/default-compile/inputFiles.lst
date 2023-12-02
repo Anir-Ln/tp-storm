@@ -1,0 +1,12 @@
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/core/Runner.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/MasterInputStreamSpout.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/test/TestStatefulBolt.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/core/Manager.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/test/TestStatefulWindowBolt.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/topology/TopologyT1.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/NothingBolt.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/ExitBolt.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/test/TestStatelessBolt.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/stream/StreamBuffer.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/stream/StreamEmiter.java
+/Users/nlumineau/Enseignements/M2_GGMD/TPs/tp-storm-2023/src/main/java/stormTP/operator/test/TestStatelessWindowBolt.java
