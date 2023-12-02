@@ -13,7 +13,7 @@ import org.apache.storm.tuple.Tuple;
 import stormTP.stream.StreamEmiter;
 
 
-public class ExitBolt implements IRichBolt {
+public class ExitBolt2 implements IRichBolt {
 
 	private static final long serialVersionUID = 4262369370788107342L;
 	//private static Logger logger = Logger.getLogger("ExitBolt");
@@ -22,7 +22,7 @@ public class ExitBolt implements IRichBolt {
 	int port = -1;
 	StreamEmiter semit = null;
 	
-	public ExitBolt (int port, String ip) {
+	public ExitBolt2 (int port, String ip) {
 		this.port = port;
 		this.ipM = ip; 
 		this.semit = new StreamEmiter(this.port,this.ipM);
@@ -34,9 +34,26 @@ public class ExitBolt implements IRichBolt {
 	 */
 	public void execute(Tuple t) {
 	
-		String n = t.getValueByField("json").toString();
-	
-		this.semit.send(n);
+		int id = t.getValueByField("id").toString();
+        int top = tuple.getIntegerByField("top");
+        String nom = tuple.getStringByField("nom");
+        int cellule = tuple.getIntegerByField("position");
+        int nbDevant = tuple.getIntegerByField("nbDevant");
+		int nbDerriere = tuple.getIntegerByField("nbDerriere");
+		int tour = tuple.getIntegerByField("nbTotal");
+
+		JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", id);
+        jsonObject.put("top", top);
+        jsonObject.put("nom", nom);
+        jsonObject.put("position", position);
+        jsonObject.put("nbDevant", nbDevant);
+		jsonObject.put("nbDerriere", nbDerriere);
+        jsonObject.put("tour", tour);
+
+        outputCollector.emit(new Values(jsonObject.toString()));
+
+		this.semit.send(jsonObject);
 		collector.ack(t);
 		
 		return;

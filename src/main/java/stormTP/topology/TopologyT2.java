@@ -32,7 +32,7 @@ public class TopologyT1 {
         /*Affectation à la topologie du bolt qui ne fait rien, il prendra en input le spout localStream*/
         builder.setBolt("nofilter", new NothingBolt(), nbExecutors).shuffleGrouping("masterStream");
         /*Affectation à la topologie du bolt qui émet le flux de sortie, il prendra en input le bolt nofilter*/
-        builder.setBolt("exit", new ExitBolt(portOUTPUT, ipmOUTPUT), nbExecutors).shuffleGrouping("nofilter");
+        builder.setBolt("exit", new ExitBolt2(portOUTPUT, ipmOUTPUT), nbExecutors).shuffleGrouping("nofilter");
        
         /*Création d'une configuration*/
         Config config = new Config();
