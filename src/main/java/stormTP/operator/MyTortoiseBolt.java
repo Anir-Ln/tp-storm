@@ -17,7 +17,19 @@ public class MyTortoiseBolt extends BaseRichBolt {
 
     @Override
     public void execute(Tuple input) {
-        System.out.println(input);
+        String inputJson = input.getValueByField("json").toString();
+        Runner runner5 = Manager.filter(inputJson);
+        int id = runner5.getId();
+        int top = runner5.getTop();
+        String nom = runner5.getNom();
+        int position = runner5.getPosition();
+        int nbDevant = runner5.getNbDevant();
+        int nbTotal = runner5.getTotal;
+
+        // Construire le nom en utilisant le format "nomBinome1-nomBinome2"
+        String nom = "Atrovite-Paltan";
+        collector.emmit(input, new Values(id, top, nom, position, nbDevant, nbTotal));
+        _collector.ack(input)
     }
 
     @Override
