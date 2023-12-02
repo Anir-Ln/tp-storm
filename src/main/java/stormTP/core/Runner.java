@@ -20,11 +20,11 @@ public class Runner{
 		
 	}
 	
-	public Runner(long id, String name, String t, int before,  int total, int position, long top){
+	public Runner(long id, String name, int nbDevant,  int nbDerriere, int total, int position, long top){
 		this.id = id;
-		this.typeR = typeR;
 		this.nom = name;
-		this.nbDevant = before;
+		this.nbDevant = nbDevant;
+		this.nbDerriere = nbDerriere;
 		this.total = total;
 		this.position = position;
 		this.top = top;
@@ -100,11 +100,12 @@ public class Runner{
 		r = Json.createObjectBuilder();
 		/* construction de l'objet JSON résultat */
 		r.add("id", this.id);
-		r.add("type", this.typeR);
+//		r.add("type", this.typeR);
 		r.add("top", this.top);
 		r.add("nom", this.nom);
 		r.add("position", this.position);
         r.add("nbDevant", this.nbDevant);
+		r.add("nbDerriere", this.nbDerriere);
         r.add("total", this.total);
        
         return r.build().toString();

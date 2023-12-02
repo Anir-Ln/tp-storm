@@ -47,27 +47,22 @@ public class AppTest
     	input += "{\"id\":2,\"top\":896,\"position\":199,\"nbDevant\":2,\"nbDerriere\":7,\"total\":10},"; 
     	input += "{\"id\":3,\"top\":896,\"position\":185,\"nbDevant\":8,\"nbDerriere\":1,\"total\":10},"; 
     	input += "{\"id\":4,\"top\":896,\"position\":192,\"nbDevant\":5,\"nbDerriere\":4,\"total\":10},"; 
-    	input += "{\"id\":5,\"top\":896,\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},"; 
+    	input += "{\"id\":5,\"top\":896,\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10},";
     	input += "{\"id\":6,\"top\":896,\"position\":206,\"nbDevant\":1,\"nbDerriere\":8,\"total\":10},"; 
     	input += "{\"id\":7,\"top\":896,\"position\":198,\"nbDevant\":3,\"nbDerriere\":6,\"total\":10},"; 
     	input += "{\"id\":8,\"top\":896,\"position\":187,\"nbDevant\":7,\"nbDerriere\":2,\"total\":10},"; 
     	input += "{\"id\":9,\"top\":896,\"position\":217,\"nbDevant\":0,\"nbDerriere\":9,\"total\":10}";
     	input += "] }";
     	
-    	String output = "{\"id\":1,\"top\":896,\"nom\":\""+nomsBinome+"\",\"position\":189,\"nbDevant\":6,\"nbDerriere\":3,\"total\":10}";
- 	 
+		String output = "{\"id\":5,\"top\":896,\"nom\":\"" + nomsBinome + "\",\"position\":182,\"nbDevant\":9,\"nbDerriere\":0,\"total\":10}";
     	System.out.println("@Test testTortoiseFilter()");
     	
-    	System.out.println("input: " +input);
-    	
     	String result = tm.filter(input).getJSON_V1();
- 	 
-    	
+
     	System.out.println("output: " + output);
     	System.out.println("result: " + result);
-    	System.out.println();
-    	
-    	 assertEquals(result , output );
+
+		assertEquals(output, result);
     }
     
     
@@ -89,7 +84,7 @@ public class AppTest
     	System.out.println("input: " +input);
     	
     	String result = tm.computeRank(1, 896, nomsBinome, 6, 3, 10).getJSON_V2();
- 	 
+
   
     	System.out.println("output: " + output);
     	System.out.println("result: " + result);
