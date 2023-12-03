@@ -36,12 +36,13 @@ public class MyTortoiseBolt extends BaseRichBolt {
                 turtle.getNom(),
                 turtle.getCellule(),
                 turtle.getNbDevant(),
-                turtle.getTour()
+                turtle.getTour(),
+                turtle.getNumberParticipants()
         ));
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("id", "top", "nom", "cellule", "nbDevant", "tour"));
+        declarer.declare(new Fields("id", "top", "nom", "cellule", "nbDevant", "tour", "numberParticipants"));
     }
 }

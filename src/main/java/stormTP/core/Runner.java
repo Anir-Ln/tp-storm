@@ -11,6 +11,7 @@ public class Runner {
 	private int tour = -1;
 	private String rang = "";
 	private int score = 0;
+	int numberParticipants = -1;
 
 	String nom = "";
 
@@ -105,4 +106,7 @@ public class Runner {
     public void setScore(int score) {
         this.score = score;
     }
+	public int getNumberParticipants() {
+		return this.numberParticipants;
+	}
 }

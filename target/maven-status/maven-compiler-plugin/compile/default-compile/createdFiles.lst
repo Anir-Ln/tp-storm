@@ -1,10 +1,10 @@
 stormTP/stream/StreamBuffer.class
-stormTP/operator/test/TestStatelessWindowBolt.class
-stormTP/operator/ExitBolt.class
 stormTP/operator/test/TestStatefulBolt.class
 stormTP/operator/test/TestStatefulWindowBolt.class
-stormTP/core/Runner.class
 stormTP/stream/StreamEmiter.class
+stormTP/operator/test/TestStatelessWindowBolt.class
+stormTP/operator/ExitBolt.class
+stormTP/core/Runner.class
 stormTP/operator/MasterInputStreamSpout.class
 stormTP/core/Manager.class
 stormTP/operator/test/TestStatelessBolt.class

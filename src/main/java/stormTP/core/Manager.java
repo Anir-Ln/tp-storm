@@ -62,6 +62,7 @@ public class Manager {
         Runner tortoise = null;
         JSONParser parser = new JSONParser();
         JSONObject myTurtle = null;
+        int numberParticipants = 0;
         try {
             JSONObject obj = (JSONObject) parser.parse(input);
             logger.info("parsed json : " + obj.toJSONString());
@@ -72,6 +73,7 @@ public class Manager {
                     if (Integer.parseInt(turtle.get("id").toString()) == MY_TURTLE_NUMBER) {
                         myTurtle = turtle;
                     }
+                    numberParticipants++;
                     logger.info("Json well parsed: " + runner);
                 } catch (Exception ex) {
                     logger.warning("Json turtle not parsed: " + runner.toString());
@@ -93,6 +95,7 @@ public class Manager {
                 Integer.parseInt(myTurtle.get("cellule").toString()),
                 Integer.parseInt(myTurtle.get("top").toString())
         );
+        tortoise.numberParticipants = numberParticipants;
         return tortoise;
     }
 
@@ -137,9 +140,8 @@ public class Manager {
      * @param numberParticipant
      * @return
      */
-    public int computePoints(Runner runner, int numberParticipant) {
-        if (runner.getTop() % 15 != 0) return 0;
-        String rank = runner.getRang();
+    public int computePoints(int top, String rank, int numberParticipant) {
+        if (top % 15 != 0) return 0;
         int intRank;
         if (rank.charAt(rank.length() - 1) == 'x') {
             intRank = Integer.parseInt(rank.substring(0, rank.length() - 2));

@@ -140,7 +140,7 @@ public class AppTest extends TestCase {
         System.out.println("@Test test1TortoiseComputePoints()");
         System.out.println("input: " + runner.getJSON_V1());
 
-        int output = tm.computePoints(runner, numberParticipant);
+        int output = tm.computePoints(runner.getTop(), runner.getRang(), numberParticipant);
         int result = 8;
 
         System.out.println("output: " + output);
@@ -172,7 +172,7 @@ public class AppTest extends TestCase {
         System.out.println("@Test test2TortoiseComputePoints()");
         System.out.println("input: " + runner.getJSON_V1());
 
-        int output = tm.computePoints(runner, numberParticipant);
+        int output = tm.computePoints(runner.getTop(), runner.getRang(), numberParticipant);
         int result = 9;
 
         System.out.println("output: " + output);
