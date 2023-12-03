@@ -26,7 +26,6 @@ public class ExitBolt implements IRichBolt {
 		this.port = port;
 		this.ipM = ip; 
 		this.semit = new StreamEmiter(this.port,this.ipM);
-		
 	}
 	
 	/* (non-Javadoc)

@@ -4,8 +4,8 @@ package stormTP.core;
 import org.apache.storm.shade.org.json.simple.JSONObject;
 
 public class Runner {
-	private long id = -1;
-	private long top = -1;
+	private int id = -1;
+	private int top = -1;
 	private int cellule = -1;
 	private int nbDevant = -1;
 	private int tour = -1;
@@ -18,7 +18,7 @@ public class Runner {
 	public Runner(){
 	}
 
-	public Runner(long id, String name, int nbDevant, int tour, int cellule, long top){
+	public Runner(int id, String name, int nbDevant, int tour, int cellule, int top){
 		this.id = id;
 		this.nom = name;
 		this.nbDevant = nbDevant;
@@ -42,19 +42,19 @@ public class Runner {
 		return obj.toJSONString();
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public long getTop() {
+	public int getTop() {
 		return top;
 	}
 
-	public void setTop(long top) {
+	public void setTop(int top) {
 		this.top = top;
 	}
 

@@ -4,3 +4,6 @@
 ![topoT1-visualization](image-2.png)
 
 # Partie 2 : Course des tortues
+![topoT2-page](image-3.png)
+![topoT2-visualization](image-4.png)
+![topoT2-logs](image-5.png)

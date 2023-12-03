@@ -6,6 +6,7 @@ import org.apache.storm.shade.org.json.simple.parser.JSONParser;
 import org.apache.storm.shade.org.json.simple.parser.ParseException;
 
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class Manager {
@@ -13,6 +14,8 @@ public class Manager {
     public static final String CONST = "C'est mieux!";
     public static final String PROG = "Statu quo";
     public static final String REGR = "ça sera sûrement mieux plus tard!";
+
+    static final Logger logger = Logger.getLogger(Manager.class.getName());
 
     String nomsBinome = "Lahyane-Dennoun";
     long dossard = -1;
@@ -60,15 +63,26 @@ public class Manager {
         JSONObject myTurtle = null;
         try {
             JSONObject obj = (JSONObject) parser.parse(input);
+            logger.info("parsed json : " + obj.toJSONString());
             JSONArray runners = (JSONArray) obj.get("item");
             for (Object runner : runners) {
-                JSONObject turtle = (JSONObject) runner;
-                if (Integer.parseInt(turtle.get("id").toString()) == MY_TURTLE_NUMBER) {
-                    myTurtle = turtle;
+                try {
+                    JSONObject turtle = (JSONObject) parser.parse(runner.toString());
+                    if (Integer.parseInt(turtle.get("id").toString()) == MY_TURTLE_NUMBER) {
+                        myTurtle = turtle;
+                    }
+                    logger.info("Json well parsed: " + runner);
+                } catch (Exception ex) {
+                    logger.warning("Json turtle not parsed: " + runner.toString());
+                    logger.warning("Message: " + ex.getMessage());
                 }
             }
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            logger.warning(e.getMessage());
+        }
+        if (myTurtle == null) {
+            logger.warning("Whole json not parsed");
+            return null;
         }
 //        JsonReader reader = Json.createReader(new StringReader(input));
 //        JsonObject jsonObject = reader.readObject();

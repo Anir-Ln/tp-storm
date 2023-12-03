@@ -28,19 +28,20 @@ public class MyTortoiseBolt extends BaseRichBolt {
         String json =  input.getValueByField("json").toString();
         logger.info("executing tuple " + json);
         Manager manager = new Manager(8, "Lahyane-Denoun");
-        Runner turtule = manager.filter(json);
+        Runner turtle = manager.filter(json);
+        logger.info("filtered turtule: " + turtle);
         collector.emit(new Values(
-                turtule.getId(),
-                turtule.getTop(),
-                turtule.getNom(),
-                turtule.getCellule(),
-                turtule.getNbDevant(),
-                turtule.getTour()
+                turtle.getId(),
+                turtle.getTop(),
+                turtle.getNom(),
+                turtle.getCellule(),
+                turtle.getNbDevant(),
+                turtle.getTour()
         ));
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("id", "top", "nom", "position", "nbDerriere", "nbDevant", "total"));
+        declarer.declare(new Fields("id", "top", "nom", "cellule", "nbDevant", "tour"));
     }
 }
