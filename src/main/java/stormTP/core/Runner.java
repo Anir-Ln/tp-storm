@@ -4,19 +4,20 @@ package stormTP.core;
 import org.apache.storm.shade.org.json.simple.JSONObject;
 
 public class Runner {
-	
-	long id = -1;
-	long top = -1;
-	int cellule = -1;
-	int nbDevant = -1;
-	int tour = -1;
-	
+	private long id = -1;
+	private long top = -1;
+	private int cellule = -1;
+	private int nbDevant = -1;
+	private int tour = -1;
+	private String rang = "";
+	private int score = 0;
+
 	String nom = "";
-	
-	
+
+
 	public Runner(){
 	}
-	
+
 	public Runner(long id, String name, int nbDevant, int tour, int cellule, long top){
 		this.id = id;
 		this.nom = name;
@@ -36,6 +37,7 @@ public class Runner {
 		obj.put("cellule", this.cellule);
         obj.put("nbDevant", this.nbDevant);
         obj.put("tour", this.tour);
+		if (!"".equals(rang)) obj.put("rang", this.rang);
 
 		return obj.toJSONString();
 	}
@@ -87,4 +89,20 @@ public class Runner {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public String getRang() {
+		return rang;
+	}
+
+	public void setRang(String rang) {
+		this.rang = rang;
+	}
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 }

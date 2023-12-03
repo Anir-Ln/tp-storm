@@ -3,25 +3,17 @@
  */
 package stormTP.operator;
 
-import java.io.StringReader;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.logging.Logger;
-
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.IRichSpout;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
-
 import stormTP.stream.StreamBuffer;
+
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.logging.Logger;
 
 /**
  * @author lumineau
