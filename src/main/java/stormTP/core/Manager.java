@@ -5,6 +5,7 @@ import org.apache.storm.shade.org.json.simple.JSONObject;
 import org.apache.storm.shade.org.json.simple.parser.JSONParser;
 import org.apache.storm.shade.org.json.simple.parser.ParseException;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -84,12 +85,6 @@ public class Manager {
             logger.warning("Whole json not parsed");
             return null;
         }
-//        JsonReader reader = Json.createReader(new StringReader(input));
-//        JsonObject jsonObject = reader.readObject();
-//        JsonArray tortoises = jsonObject.getJsonArray("item");
-//        Optional<JsonValue> myTurtle = tortoises.stream().filter(
-//                jsonValue -> ((JsonObject) jsonValue).getInt("id") == MY_TURTLE_NUMBER
-//        ).findFirst();
         tortoise = new Runner(
                 MY_TURTLE_NUMBER,
                 this.nomsBinome,
@@ -105,7 +100,14 @@ public class Manager {
         return runner.getTour() * 254 + runner.getCellule();
     }
 
-    public void computeRank(int id, List<Runner> runners) {
+    public String computeRank(int nbDevant, HashMap<Integer, Boolean> map) {
+        String rang = String.valueOf(nbDevant + 1);
+        if (map.containsKey(nbDevant + 1)) rang += "ex";
+        else map.put(nbDevant + 1, true);
+        return rang;
+    }
+
+    public void computeRankWithDistance(int id, List<Runner> runners) {
         runners.sort((o1, o2) -> {
             int diff = computeDistance(o1) - computeDistance(o2);
             if (diff > 0) return -1;

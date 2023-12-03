@@ -7,3 +7,7 @@
 ![topoT2-page](image-3.png)
 ![topoT2-visualization](image-4.png)
 ![topoT2-logs](image-5.png)
+
+
+![topoT3-page](image-8.png)
+![topoT3-logs](image-6.png)

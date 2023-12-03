@@ -99,7 +99,7 @@ public class AppTest extends TestCase {
         runners.forEach(
                 runner -> System.out.println(runner.getJSON_V1())
         );
-        tm.computeRank(5, runners);
+        tm.computeRankWithDistance(5, runners);
         System.out.println("---------");
         runners.forEach(
                 runner -> System.out.println(runner.getJSON_V1())
